@@ -79,3 +79,161 @@ footer {
     border-top: 1px solid #344454;
     font-size: 12px;
 }
+/* GAME INTERFACE */
+
+.top-panel {
+    background: #172637;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #53677a;
+}
+
+.top-panel small {
+    color: #d0ad68;
+    letter-spacing: 2px;
+}
+
+.top-panel h2 {
+    margin-top: 5px;
+    font-size: 20px;
+}
+
+.time-controls {
+    display: flex;
+    gap: 7px;
+}
+
+.time-controls button {
+    padding: 10px 15px;
+}
+
+.game-layout {
+    display: grid;
+    grid-template-columns: 220px 1fr 220px;
+    gap: 12px;
+    padding: 15px;
+    max-width: 1600px;
+}
+
+.side-panel {
+    background: #1b2b3c;
+    border: 1px solid #53677a;
+    padding: 15px;
+}
+
+.side-panel h2 {
+    color: #d0ad68;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.side-panel h3 {
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.side-panel label {
+    display: block;
+    color: #aab7c4;
+    margin-bottom: 8px;
+}
+
+.side-panel select {
+    width: 100%;
+    padding: 10px;
+    background: #101923;
+    color: white;
+    border: 1px solid #53677a;
+}
+
+.side-panel hr {
+    border: 0;
+    border-top: 1px solid #53677a;
+    margin: 20px 0;
+}
+
+.resource {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #344454;
+    font-size: 13px;
+}
+
+.resource b {
+    color: #d0ad68;
+}
+
+.map-panel {
+    background: #172637;
+    border: 1px solid #53677a;
+    padding: 15px;
+    min-height: 500px;
+}
+
+.map-panel h2 {
+    color: #d0ad68;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.map-placeholder {
+    min-height: 430px;
+    background: #243b4c;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.globe {
+    font-size: 90px;
+    margin-bottom: 20px;
+}
+
+.map-placeholder p {
+    color: #aab7c4;
+    margin: 15px;
+}
+
+.diplomacy button {
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 11px;
+}
+
+.diplomacy p {
+    color: #aab7c4;
+    line-height: 1.6;
+    font-size: 12px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+@media (max-width: 800px) {
+    .game-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .top-panel {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .time-controls {
+        flex-wrap: wrap;
+    }
+
+    .map-panel {
+        min-height: 400px;
+    }
+}
