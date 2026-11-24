@@ -237,3 +237,62 @@ footer {
         min-height: 400px;
     }
 }
+
+/* WORLD MAP */
+
+.map-container {
+    position: relative;
+    width: 100%;
+    min-height: 430px;
+    height: 65vh;
+    max-height: 750px;
+    background: #172f42;
+    overflow: hidden;
+    border: 1px solid #53677a;
+}
+
+#world-map {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.country {
+    stroke: #243849;
+    stroke-width: 0.6;
+    cursor: pointer;
+    transition: fill 0.2s;
+}
+
+.country:hover {
+    fill: #d0ad68 !important;
+    stroke: white;
+    stroke-width: 1.5;
+}
+
+.country.selected {
+    fill: #b18b4c !important;
+    stroke: #ffe0a0;
+    stroke-width: 1.5;
+}
+
+.map-info {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    padding: 10px;
+    background: #101923dd;
+    pointer-events: none;
+}
+
+.map-info span {
+    color: #d0ad68;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.map-info p {
+    color: #c0ccd5;
+    font-size: 10px;
+    margin-top: 5px;
+}
