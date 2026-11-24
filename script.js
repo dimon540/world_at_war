@@ -1,81 +1,98 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+let game = {
+    started: false,
+    paused: true,
+    day: 1,
+    month: 1,
+    year: 1936,
+    speed: 1,
+    country: "Germany"
+};
+
+const months = [
+    "January", "February", "March", "April",
+    "May", "June", "July", "August",
+    "September", "October", "November", "December"
+];
+
+function startGame() {
+    game.started = true;
+    game.paused = false;
+    game.day = 1;
+    game.month = 1;
+    game.year = 1936;
+    updateInterface();
 }
 
-body {
-    background: #101923;
-    color: #e5e5e5;
-    font-family: Arial, sans-serif;
+function nextDay() {
+    if (!game.started || game.paused) return;
+
+    game.day++;
+
+    const daysInMonth = new Date(
+        game.year,
+        game.month,
+        0
+    ).getDate();
+
+    if (game.day > daysInMonth) {
+        game.day = 1;
+        game.month++;
+
+        if (game.month > 12) {
+            game.month = 1;
+            game.year++;
+        }
+    }
+
+    updateInterface();
 }
 
-header {
-    background: #172637;
-    border-bottom: 3px solid #a8894c;
-    padding: 25px;
-    text-align: center;
+function pauseGame() {
+    game.paused = !game.paused;
+    updateInterface();
 }
 
-header h1 {
-    color: #d0ad68;
-    font-size: 34px;
-    letter-spacing: 5px;
+function changeSpeed(speed) {
+    game.speed = speed;
+    updateInterface();
 }
 
-header p {
-    color: #9ba9b7;
-    margin-top: 8px;
-    letter-spacing: 3px;
-    font-size: 12px;
+function selectCountry(country) {
+    game.country = country;
+
+    if (typeof chooseMapCountry === "function") {
+        chooseMapCountry(country);
+    } else {
+        updateInterface();
+    }
 }
 
-main {
-    max-width: 1100px;
-    margin: 40px auto;
-    padding: 20px;
-    text-align: center;
+function updateInterface() {
+    const dateElement = document.getElementById("game-date");
+    const pauseButton = document.getElementById("pause-button");
+    const countryElement = document.getElementById("selected-country");
+
+    if (dateElement) {
+        dateElement.textContent =
+            game.day + " " + months[game.month - 1] + " " + game.year;
+    }
+
+    if (pauseButton) {
+        pauseButton.textContent = game.paused ? "RESUME" : "PAUSE";
+    }
+
+    if (countryElement) {
+        countryElement.textContent = game.country;
+    }
 }
 
-main h2 {
-    color: #d0ad68;
-    margin-bottom: 30px;
-}
+setInterval(function() {
+    if (game.started && !game.paused) {
+        for (let i = 0; i < game.speed; i++) {
+            nextDay();
+        }
+    }
+}, 1000);
 
-.game-panel {
-    background: #1b2b3c;
-    border: 1px solid #53677a;
-    padding: 35px;
-    max-width: 500px;
-    margin: auto;
-    box-shadow: 0 5px 20px #0008;
-}
-
-.game-panel h3 {
-    color: #d0ad68;
-    margin-bottom: 25px;
-    letter-spacing: 2px;
-}
-
-button {
-    background: #80683e;
-    color: white;
-    border: 1px solid #c4a568;
-    padding: 14px 35px;
-    font-size: 15px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-button:hover {
-    background: #a8894c;
-    transform: scale(1.04);
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    color: #738394;
-    border-top: 1px solid #344454;
-    font-size: 12px;
-}
+console.log("WORLD AT WAR engine loaded!");
