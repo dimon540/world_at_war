@@ -6,25 +6,157 @@
     <title>WORLD AT WAR</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <header>
-        <h1>WORLD AT WAR</h1>
-        <p>GRAND STRATEGY GAME</p>
-    </header>
+<header>
+    <h1>WORLD AT WAR</h1>
+    <p>GRAND STRATEGY GAME</p>
+</header>
 
-    <main>
-        <h2>Добро пожаловать, командующий!</h2>
+<div class="top-panel">
 
-        <div class="game-panel">
-            <h3>НОВАЯ ИГРА</h3>
-            <button>Начать кампанию</button>
+    <div>
+        <small>CAMPAIGN DATE</small>
+        <h2 id="game-date">1 January 1936</h2>
+    </div>
+
+    <div class="time-controls">
+        <button onclick="pauseGame()" id="pause-button">
+            RESUME
+        </button>
+
+        <button onclick="changeSpeed(1)">▶</button>
+        <button onclick="changeSpeed(2)">▶▶</button>
+        <button onclick="changeSpeed(4)">▶▶▶</button>
+    </div>
+
+</div>
+
+<main class="game-layout">
+
+    <aside class="side-panel">
+
+        <h2>COUNTRY</h2>
+
+        <h3 id="selected-country">Germany</h3>
+
+        <label>Choose country:</label>
+
+        <select onchange="selectCountry(this.value)">
+            <option>Germany</option>
+            <option>France</option>
+            <option>United Kingdom</option>
+            <option>Soviet Union</option>
+            <option>United States</option>
+            <option>Italy</option>
+            <option>Japan</option>
+            <option>Poland</option>
+        </select>
+
+        <hr>
+
+        <h2>ECONOMY</h2>
+
+        <div class="resource">
+            <span>Factories</span>
+            <b>18</b>
         </div>
-    </main>
 
-    <footer>
-        WORLD AT WAR © 2026
-    </footer>
+        <div class="resource">
+            <span>Steel</span>
+            <b>120</b>
+        </div>
+
+        <div class="resource">
+            <span>Oil</span>
+            <b>45</b>
+        </div>
+
+        <div class="resource">
+            <span>Manpower</span>
+            <b>550K</b>
+        </div>
+
+        <hr>
+
+        <h2>MILITARY</h2>
+
+        <div class="resource">
+            <span>Divisions</span>
+            <b>24</b>
+        </div>
+
+        <div class="resource">
+            <span>Aircraft</span>
+            <b>180</b>
+        </div>
+
+    </aside>
+
+    <section class="map-panel">
+
+        <h2>WORLD MAP</h2>
+
+        <div class="map-placeholder">
+
+            <div class="globe">🌍</div>
+
+            <h2>WORLD AT WAR</h2>
+
+            <p>
+                The world is waiting for your orders.
+            </p>
+
+            <button onclick="startGame()">
+                START CAMPAIGN
+            </button>
+
+        </div>
+
+    </section>
+
+    <aside class="side-panel diplomacy">
+
+        <h2>DIPLOMACY</h2>
+
+        <p>International relations</p>
+
+        <hr>
+
+        <button onclick="alert('Diplomacy system coming soon!')">
+            IMPROVE RELATIONS
+        </button>
+
+        <button onclick="alert('Alliance system coming soon!')">
+            CREATE ALLIANCE
+        </button>
+
+        <button onclick="alert('War system coming soon!')">
+            DECLARE WAR
+        </button>
+
+        <hr>
+
+        <h2>WORLD NEWS</h2>
+
+        <p>1 January 1936</p>
+
+        <p>
+            A new campaign has begun.
+            The future of the world is in your hands.
+        </p>
+
+    </aside>
+
+</main>
+
+<footer>
+    WORLD AT WAR © 2026
+    <span>PRE-ALPHA VERSION 0.1</span>
+</footer>
+
+<script src="script.js"></script>
 
 </body>
 </html>
